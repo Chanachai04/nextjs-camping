@@ -16,7 +16,14 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   const { pending } = useFormStatus();
   return (
     <Button disabled={pending} type="submit" className={`${className} capitalize`} size={size}>
-      {pending ? <RotateCw className="animate-spin" /> : <p>{text}</p>}
+      {pending ? (
+        <>
+          <RotateCw className="animate-spin" />
+          <span className="ml-2">Please wait....</span>
+        </>
+      ) : (
+        <p>{text}</p>
+      )}
     </Button>
   );
 };

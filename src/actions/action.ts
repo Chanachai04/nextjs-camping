@@ -41,3 +41,17 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
   }
   redirect("/");
 };
+
+export const createLandmarkAction = async (prevState: any, formData: FormData): Promise<{ message: string }> => {
+  try {
+    const user = await currentUser();
+    if (!user) throw new Error("Please login to create a profile");
+    const rawData = Object.fromEntries(formData);
+    // const validateField = validateWithZod(profileSchema, rawData);
+    console.log("rawData", rawData);
+    return { message: "Landmark created successfully" };
+  } catch (err) {
+    return renderError(err);
+  }
+  // redirect("/");
+};

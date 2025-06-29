@@ -17,7 +17,8 @@ const renderError = (err: unknown): { message: string } => {
 
 export const createProfileAction = async (prevState: any, formData: FormData) => {
   try {
-    const user = await getAuthUser();
+    const user = await currentUser();
+    if (!user) throw new Error("Please login to create a profile");
     const rawData = Object.fromEntries(formData);
     const validateField = validateWithZod(profileSchema, rawData);
 

@@ -5,6 +5,7 @@ import FormContainer from "@/components/form/FormContainer";
 import FormInput from "@/components/form/FormInput";
 import ProvinceInput from "@/components/form/ProvinceInputs";
 import TextAreaInput from "@/components/form/TextAreaInput";
+import MapLandmark from "@/components/map/MapLandmark";
 
 const CreateLandmark = async () => {
   return (
@@ -20,6 +21,9 @@ const CreateLandmark = async () => {
             </div>
             <FormInput label="Price" name="price" type="number" placeholder="Enter the price" />
             <ProvinceInput />
+            <div className="md:col-span-2">
+              <MapLandmark location={{ lat: 13.8, lng: 100.5 }} />
+            </div>
             <SubmitButton className="md:col-span-2" text="create landmark" size="lg" />
           </div>
         </FormContainer>

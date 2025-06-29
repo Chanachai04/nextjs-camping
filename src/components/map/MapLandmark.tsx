@@ -33,15 +33,10 @@ function LocationMarker({
 }
 
 const MapLandmark = ({ location }: { location?: { lat: number; lng: number } }) => {
-<<<<<<< HEAD
-  const defaultLocation: [number, number] = [13.8, 100.5];
-  const [position, setPosition] = useState<LatLng | null>(null);
-=======
   const defaultLocation: LatLng = [13.8, 100.5];
   const initialLocation: LatLng = location ? [location.lat, location.lng] : defaultLocation;
 
   const [position, setPosition] = useState<LatLng | null>(location ? [location.lat, location.lng] : null);
->>>>>>> a2a05fada6f1982cdcde80d125924fe490c2f7a1
 
   return (
     <>
